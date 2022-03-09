@@ -1,0 +1,19 @@
+.title-1 {
+    margin-bottom: $SPACING-1-00;
+    @include set-font($FONT_TITLE_1);
+}
+
+.title-2 {
+    &:not( :last-child ) { margin-bottom: $SPACING-1-00; }
+    @include set-font($FONT_TITLE_2);
+}
+
+.title-3 {
+    &:not( :last-child ) { margin-bottom: $SPACING-0-50; }
+    @include set-font($FONT_TITLE_3);
+}
+
+.title-4 {
+    &:not( :last-child ) { margin-bottom: $SPACING-1-00; }
+    @include set-font($FONT_TITLE_4);
+}

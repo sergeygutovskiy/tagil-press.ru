@@ -1,0 +1,23 @@
+@use 'sass:map';
+
+@function get-font-size($font-name, $static: false) {
+    @if map.has-key($FONTS, $font-name) {
+        @if $static {
+            $font: map-get($map: $FONTS, $key: $font-name);
+            @return map-get($map: $font, $key: 'size');   
+        }
+
+        @return var(--#{ $font-name }-size);
+    }
+
+    @error "Incorrect [font-name]: #{$font-name}";
+}
+
+@function get-font-weight($font-name) {
+    @if map.has-key($FONTS, $font-name) {
+        $font: map-get($map: $FONTS, $key: $font-name);
+        @return map-get($map: $font, $key: 'weight');
+    }
+
+    @error "Incorrect [font-name]: #{$font-name}";
+}

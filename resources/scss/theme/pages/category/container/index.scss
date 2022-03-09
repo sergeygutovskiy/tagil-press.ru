@@ -1,0 +1,11 @@
+.\+category-container__tags {
+    position: sticky;
+    top: calc( var(--nav-height) + #{ $SPACING-2-00 } );
+}
+
+.\+category-container__tags-title {
+    margin-bottom: $SPACING-1-50;
+
+    @include set-font($FONT_TITLE_4);
+    color: $COLOR_TEXT_50;
+}

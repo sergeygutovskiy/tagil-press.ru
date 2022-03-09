@@ -1,0 +1,24 @@
+@import 'reset';
+
+@import 'interfaces';
+@import 'app';
+@import 'components';
+@import 'pages';
+
+
+@media screen and (max-width: 1024px) {
+    @import 'app/1024';
+    @import 'components/1024';
+    @import 'pages/1024';
+}
+
+@media screen and (max-width: 768px) {
+    @import 'app/768';
+    @import 'pages/768';
+}
+
+@media screen and (max-width: 600px) {
+    @import 'app/600';
+    @import 'components/600';
+    @import 'pages/600';
+}

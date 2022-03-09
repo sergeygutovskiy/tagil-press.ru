@@ -1,0 +1,27 @@
+.photo-card {
+    @extend %aspect-ratio;
+    
+    position: relative;
+
+    border-radius: 10px;
+    overflow: hidden;
+
+    --aspect-ratio: 385 / 250;
+}
+
+.photo-card__caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: calc(var(--line-height) * 3 + var(--spacing) * 2);
+    padding: var(--spacing);
+
+    color: $COLOR_WHITE_10;
+
+    background: #{ $COLOR_TEXT_100 + 'cc' };
+
+    --spacing: #{ $SPACING-0-75 };
+    --line-height: 1.25em;
+}

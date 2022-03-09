@@ -1,0 +1,42 @@
+:root {
+    // font sizes variables
+
+    @include set-font($FONT_BODY);
+
+    @each $font-name, $font-params in $FONTS {
+        $size: map-get($map: $font-params, $key: 'size');
+        --#{ $font-name }-size: #{ $size };
+    }
+}
+
+.app-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+
+    font-family: $FONT_FAMIY_PRIMARY;
+    color: $COLOR_TEXT_100;
+
+    background-color: $COLOR_BACKGROUND;
+
+    // &.--home {
+    //     background-image: 
+    //         linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    //         url('https://s3-alpha-sig.figma.com/img/2949/2baa/65f9a2a2551c04ea21474b68ca01fbc2?Expires=1646611200&Signature=cc8blK7rdvUWGxgx74XW0pLDW6AprAuCsbCd~HaCeXat9Fs9eDHYf8gTzzBIgWHH-9kLxu4ZRKmyTwoN5YbfBs8l2Fxz~p65B5zSBXXEcm1id8O8tugWtzWCn3NXmxt8RkPnuxoxwAkNN1EBu-HvpUN0P720gSaDf71MQZV4iacExs0nYQ0BUuIX2iDB3DgxGJ~N08rfDG0nJC0p5MbchFYJsCeppnnzOi6sRsfbEOXsDqQG7e5h8gNZlq5evnK23CZ0YDt5P8oWD2kG6nAzjGvPNorbYUW0EAjllElXq8bORDpkw82p8MTjpv-yd5oz81ueL~coZx5XssWvtqB0Iw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA');
+        
+    //     background-size: cover;
+    //     background-repeat: no-repeat;
+    //     background-position: center;
+    // }
+
+    --nav-margin-top: #{ $SPACING-1-50 };
+    --nav-padding-top: #{ $SPACING-1-00 };
+    --nav-padding-bottom: #{ $SPACING-1-50 };
+    --nav-title-size: #{ get-font-size($FONT_TITLE_2) };
+    --nav-height: calc( 
+        var(--nav-margin-top) 
+        + var(--nav-padding-top) 
+        + var(--nav-padding-bottom) 
+        + var(--nav-title-size)
+    )
+}

@@ -1,0 +1,7 @@
+.\+publication-container {
+    grid-template-columns: 1fr;
+}
+
+.\+publication-container__content {
+    grid-column: span 1;
+}

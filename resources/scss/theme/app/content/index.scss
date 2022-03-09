@@ -1,0 +1,6 @@
+.app-content {
+    min-height: calc(100vh - var(--nav-height));
+
+    padding-top: $SPACING-6-00;
+    padding-bottom: $SPACING-9-00;
+}

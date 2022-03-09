@@ -1,0 +1,25 @@
+.tag-list {
+    margin: calc( var(--spacing) / -2 );
+
+    display: flex;
+    flex-wrap: wrap;
+
+    --spacing: #{ $SPACING-1-00 };
+}
+
+.tag-list__item {
+    margin: calc( var(--spacing) / 2 );
+
+    padding: $SPACING-0-75 $SPACING-1-50;
+    @include set-font($FONT_SUBTEXT_2);
+
+    border-radius: 7px;
+    background-color: $COLOR_WHITE_10;
+    overflow: hidden;
+
+    transition: color 150ms linear, background-color 150ms linear;
+    &:hover {
+        color: $COLOR_WHITE_10;
+        background-color: $COLOR_BLUE_40;
+    }
+}

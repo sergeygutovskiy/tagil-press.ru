@@ -1,0 +1,4 @@
+@mixin set-font($font-name, $static: false) {
+    font-size: get-font-size($font-name, $static);
+    font-weight: get-font-weight($font-name);
+}

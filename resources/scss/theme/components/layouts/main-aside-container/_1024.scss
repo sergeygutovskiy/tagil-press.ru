@@ -1,0 +1,11 @@
+.main-aside-container {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.main-aside-container__main {
+    grid-column: span 1;
+}
+
+.main-aside-container__aside {
+    grid-column: span 1;
+}

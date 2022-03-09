@@ -1,0 +1,16 @@
+.main-aside-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: stretch;
+
+    column-gap: $SPACING-1-00;
+    row-gap: $SPACING-3-00;
+}
+
+.main-aside-container__main {
+    grid-column: span 7;
+}
+
+.main-aside-container__aside {
+    grid-column: 9 / 13;
+}

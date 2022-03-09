@@ -1,0 +1,94 @@
+@use 'sass:math';
+
+$FONT_FAMIY_PRIMARY: 'Manrope', sans-serif;
+
+// 
+
+$FONT_TITLE_1: 'title-1';
+$FONT_TITLE_2: 'title-2';
+$FONT_TITLE_3: 'title-3';
+$FONT_TITLE_4: 'title-4';
+
+$FONT_BODY: 'body';
+
+$FONT_SUBTEXT_1: 'subtext-1';
+$FONT_SUBTEXT_2: 'subtext-2';
+
+$FONTS: (
+    $FONT_TITLE_1: ( 'size': math.div(44, 16) + 'rem', 'weight': 600 ),
+    $FONT_TITLE_2: ( 'size': math.div(34, 16) + 'rem', 'weight': 600 ),
+    $FONT_TITLE_3: ( 'size': math.div(24, 16) + 'rem', 'weight': 500 ),
+    $FONT_TITLE_4: ( 'size': math.div(18, 16) + 'rem', 'weight': 500 ),
+
+    $FONT_BODY: ( 'size': 16px, 'weight': 400 ),
+    
+    $FONT_SUBTEXT_1: ( 'size': math.div(14, 16) + 'rem', 'weight': 500 ),
+    $FONT_SUBTEXT_2: ( 'size': math.div(12, 16) + 'rem', 'weight': 500 ),
+);
+
+$FONTS_1024: (
+    $FONT_TITLE_1: ( 'size': math.div(30, 14) + 'rem' ),
+    $FONT_TITLE_2: ( 'size': math.div(26, 14) + 'rem' ),
+    $FONT_TITLE_3: ( 'size': math.div(18, 14) + 'rem' ),
+    $FONT_TITLE_4: ( 'size': math.div(14, 14) + 'rem' ),
+    
+    $FONT_BODY: ( 'size': 14px ),
+    
+    $FONT_SUBTEXT_1: ( 'size': math.div(12, 14) + 'rem' ),
+    $FONT_SUBTEXT_2: ( 'size': math.div(10, 14) + 'rem' ),
+);
+
+$FONTS_600: (
+    $FONT_TITLE_1: ( 'size': math.div(26, 14) + 'rem' ),
+    $FONT_TITLE_2: ( 'size': math.div(24, 14) + 'rem' ),
+    $FONT_TITLE_3: ( 'size': math.div(18, 14) + 'rem' ),
+    $FONT_TITLE_4: ( 'size': math.div(14, 14) + 'rem' ),
+    
+    $FONT_BODY: ( 'size': 14px ),
+    
+    $FONT_SUBTEXT_1: ( 'size': math.div(12, 14) + 'rem' ),
+    $FONT_SUBTEXT_2: ( 'size': math.div(10, 14) + 'rem' ),
+);
+
+// 
+
+$COLOR_DIVIDER:    #D9D0D0;
+$COLOR_BACKGROUND: #F3F4F5;
+$COLOR_ERROR:      #F04A4A;
+
+$COLOR_TEXT_100:   #242424;
+$COLOR_TEXT_90:    #363636;
+$COLOR_TEXT_50:    #9F9F9F;
+
+$COLOR_WHITE_20:   #FFFFFC;
+$COLOR_WHITE_10:   #FFFFFF;
+
+$COLOR_BLUE_50:    #1F67C5;
+$COLOR_BLUE_40:    #2174E1;
+$COLOR_BLUE_30:    #1379FF;
+$COLOR_BLUE_20:    #87ADDF;
+$COLOR_BLUE_10:    #E5EFFF;
+
+$COLOR_CARD_4:     #FFFFE7;
+$COLOR_CARD_3:     #D2D9E1;
+$COLOR_CARD_2:     #D2B4A7;
+$COLOR_CARD_1:     #979E99;
+
+// 
+
+$SPACING-0-25: 0.25em;
+$SPACING-0-50: 0.50em;
+$SPACING-0-75: 0.75em;
+$SPACING-1-00: 1.00em;
+
+$SPACING-1-25: 1.25em;
+$SPACING-1-50: 1.50em;
+$SPACING-1-75: 1.75em;
+$SPACING-2-00: 2.00em;
+
+$SPACING-3-00: 3.00em;
+$SPACING-4-00: 4.00em;
+$SPACING-5-00: 5.00em;
+$SPACING-6-00: 6.00em;
+
+$SPACING-9-00: 9.00em;

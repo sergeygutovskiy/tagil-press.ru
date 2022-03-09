@@ -1,0 +1,51 @@
+[
+    {
+        "name": "Социально-экономическое развитие Нижнего Тагила",
+        "id": "453",
+        "slug": "socialno-ekonomicheskoe-razvitie-nizhnego-tagila",
+        "card": {
+            "contentColorClass": "--color-blue-20",
+            "imageAlignClass": "--bg-bottom-left"
+        }          
+    },
+
+    {
+        "name": "Диссертации о Тагиле",
+        "id": "804",
+        "slug": "dissertacii-o-tagile",
+        "card": {
+            "contentColorClass": "--color-card-1",
+            "imageAlignClass": "--bg-center-center"
+        }          
+    },
+
+    {
+        "name": "Урал. Свердловская область",
+        "id": "455",
+        "slug": "ural-sverdlovskaja-oblast",
+        "card": {
+            "contentColorClass": "--color-card-2",
+            "imageAlignClass": "--bg-center-center"
+        }          
+    },
+
+    {
+        "name": "Газета \"Тагильский рабочий\"",
+        "id": "7",
+        "slug": "gazeta-tagilskij-rabochij",
+        "card": {
+            "contentColorClass": "--color-card-4",
+            "imageAlignClass": "--bg-center-center"
+        }          
+    },
+
+    {
+        "name": "Статьи о Тагиле",
+        "id": "11",
+        "slug": "stati-o-tagile",
+        "card": {
+            "contentColorClass": "--color-card-3",
+            "imageAlignClass": "--bg-center-left"
+        }          
+    }
+]

@@ -1,0 +1,27 @@
+
+.\+home-bg,
+.\+home-bg::before {
+    position: absolute;
+    
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+}
+
+.\+home-bg {
+    z-index: 0;
+
+    &::before {
+        z-index: 1;
+
+        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35));
+    
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        content: '';
+    }
+}

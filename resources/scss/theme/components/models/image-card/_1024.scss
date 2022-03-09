@@ -1,0 +1,10 @@
+.image-card {
+    &.--bg {
+        &-bottom-left .image-card__image,
+        &-center-center .image-card__image,
+        &-center-left .image-card__image {
+            --aspect-ratio: 1 / 2;
+            clip-path: circle(100% at 158% 0px);
+        }
+    }
+}

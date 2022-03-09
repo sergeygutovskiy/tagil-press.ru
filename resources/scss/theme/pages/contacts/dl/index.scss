@@ -1,0 +1,14 @@
+.\+contacts-dl {
+    display: grid;
+    grid-auto-columns: 1fr;
+    gap: 0 $SPACING-1-00 ;
+}
+
+.\+contacts-dl__dt {
+    grid-row-start: 1;
+    color: $COLOR_TEXT_50;
+}
+
+.\+contacts-dl__dd {
+    @include set-font($FONT_TITLE_3);
+}

@@ -1,0 +1,12 @@
+.\+contacts-dl {
+    grid-auto-columns: 1fr;
+    gap: $SPACING-0-25 0;
+}
+
+.\+contacts-dl__dt {
+    grid-row-start: unset;
+}
+
+.\+contacts-dl__dd {
+    &:not( :last-child ) { margin-bottom: $SPACING-0-50; }
+}

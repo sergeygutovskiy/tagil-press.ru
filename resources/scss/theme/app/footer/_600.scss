@@ -1,0 +1,24 @@
+.app-footer__content { grid-template-columns: 1fr 1fr; }
+.app-footer__title { grid-column: span 2; }
+
+.app-footer__nav {
+    margin-right: 0;
+
+    grid-row: 2;
+    grid-column: 1;
+
+    flex-direction: column;
+}
+
+.app-footer__nav-link { margin-right: 0; }
+.app-footer__dt { grid-row: span 1; }
+
+.app-footer__dd {
+    grid-row: span 2;
+    &:not( :last-child ) { margin-bottom: $SPACING-1-25; }
+}
+
+.app-footer__copyright {
+    grid-column: span 2;
+    grid-row: 3;
+}

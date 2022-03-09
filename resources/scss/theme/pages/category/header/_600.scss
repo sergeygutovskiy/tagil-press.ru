@@ -1,0 +1,11 @@
+.\+category-header {
+    @extend %aspect-ratio;
+
+    margin-bottom: $SPACING-3-00;
+    
+    --aspect-ratio: 2 / 1;
+}
+
+.\+category-header .article-card__name {
+    @include set-font($FONT_TITLE_3);
+}

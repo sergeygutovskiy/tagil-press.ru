@@ -1,0 +1,17 @@
+.\+publications-category-list {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 200px;
+    gap: $SPACING-1-50;
+}
+
+.\+publications-category-list__item {
+    display: flex;
+    align-items: stretch;
+
+    &:nth-child(1) { grid-column: span 7; grid-row: span 2; }
+    &:nth-child(2) { grid-column: span 5; grid-row: span 1; }
+    &:nth-child(3) { grid-column: span 5; grid-row: span 1; }
+    &:nth-child(4) { grid-column: span 6; grid-row: span 1; }
+    &:nth-child(5) { grid-column: span 6; grid-row: span 1; }
+} 

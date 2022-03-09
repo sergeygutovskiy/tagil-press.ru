@@ -1,0 +1,18 @@
+{
+  "private": "true",
+  "scripts": {
+    "sass-watch": "webpack --watch --mode=development",
+    "prod": "webpack --mode=production",
+    "get-category-popular-tags": "node --experimental-modules ./js/get_category_popular_tags.js"
+  },
+  "dependencies": {
+    "css-loader": "^6.6.0",
+    "mini-css-extract-plugin": "^2.5.3",
+    "node-fetch": "^3.2.0",
+    "node-sass": "^7.0.1",
+    "nprogress": "^0.2.0",
+    "sass-loader": "^12.6.0",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
+  }
+}

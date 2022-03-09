@@ -1,0 +1,8 @@
+:root {
+    // font sizes variables
+
+    @each $font-name, $font-params in $FONTS_600 {
+        $size: map-get($map: $font-params, $key: 'size');
+        --#{ $font-name }-size: #{ $size };
+    }
+}

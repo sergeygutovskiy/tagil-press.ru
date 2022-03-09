@@ -1,0 +1,34 @@
+.\+home-input {
+    margin-bottom: $SPACING-1-00;
+
+    display: grid;
+    grid-template-columns: 1fr auto;
+    max-width: var(--max-width);
+    width: 100%;
+
+    @include set-font($FONT_TITLE_2);
+}
+
+.\+home-input__text {
+    width: 100%;
+    padding-right: $SPACING-0-75;
+    padding-bottom: $SPACING-0-25;
+
+    color: $COLOR_WHITE_10;
+
+    border-bottom: 3px solid $COLOR_WHITE_10;
+
+    &, &::placeholder { color: $COLOR_WHITE_10; }
+}
+
+.\+home-input__button {
+    width: 1em;
+    padding-bottom: $SPACING-0-25;
+    
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2.52632 10.1053C2.52632 5.91953 5.91953 2.52632 10.1053 2.52632C14.291 2.52632 17.6842 5.91953 17.6842 10.1053C17.6842 14.291 14.291 17.6842 10.1053 17.6842C5.91953 17.6842 2.52632 14.291 2.52632 10.1053ZM10.1053 0C4.52428 0 0 4.52428 0 10.1053C0 15.6862 4.52428 20.2105 10.1053 20.2105C12.4405 20.2105 14.5907 19.4184 16.3019 18.0882L21.8437 23.63C22.3369 24.1233 23.1367 24.1233 23.63 23.63C24.1233 23.1367 24.1233 22.3369 23.63 21.8437L18.0882 16.3019C19.4184 14.5907 20.2105 12.4405 20.2105 10.1053C20.2105 4.52428 15.6862 0 10.1053 0Z' fill='white'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    border-bottom: 3px solid $COLOR_WHITE_10;
+}

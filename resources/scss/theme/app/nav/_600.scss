@@ -1,0 +1,44 @@
+.app-nav { margin-top: 0; }
+.app-container.--home .app-nav.--open { --color: #{ $COLOR_TEXT_100 }; }
+
+.app-nav__content {
+    justify-content: space-between;
+    align-items: center;
+
+    padding-top: $SPACING-1-00;
+    padding-bottom: $SPACING-1-00;
+}
+
+.app-nav__menu-toggle { display: revert; }
+
+.app-nav-links {
+    margin-bottom: calc( #{ $SPACING-2-00 } * -1 );
+
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+
+    flex-direction: column;
+
+    width: 100%;
+    height: 100vh;
+    padding: calc( var(--padding-x) * 2 ) var(--padding-x);
+    padding-top: calc( var(--padding-x) * 2 + var(--offset) );
+
+    background-color: $COLOR_BACKGROUND;
+
+    transition: transform 150ms ease-in;
+    --offset: calc( #{ $SPACING-1-00 } * 2 + #{ get-font-size($FONT_TITLE_2) } );
+}
+
+.app-nav:not( .--open ) .app-nav-links { 
+    transform: translate( -100%, 0 );
+}
+
+.app-nav-links__item {
+    &:not( :last-child ) { margin-bottom: $SPACING-2-00; }
+    &:not( :last-child ) { margin-right: 0; }
+
+    @include set-font($FONT_TITLE_3);
+}

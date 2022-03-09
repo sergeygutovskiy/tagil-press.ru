@@ -1,0 +1,10 @@
+.\+category-header {
+    @extend %aspect-ratio;
+    
+    margin-bottom: $SPACING-6-00;
+
+    display: flex;
+    align-items: stretch;
+
+    --aspect-ratio: 4 / 1;
+}

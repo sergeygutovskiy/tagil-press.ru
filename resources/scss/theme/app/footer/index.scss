@@ -1,0 +1,65 @@
+.app-footer {
+    background-color: $COLOR_BACKGROUND;
+}
+
+.app-footer__content {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    gap: $SPACING-2-00;
+
+    padding-top: var(--padding-y);
+    padding-bottom: var(--padding-y);
+
+    --padding-y: #{ $SPACING-3-00 };
+}
+
+.app-footer__title {
+    grid-column: span 1;
+    align-self: baseline;
+
+    @include set-font($FONT_TITLE_2);
+}
+
+.app-footer__nav {
+    margin-top: calc(#{ $SPACING-1-00 } * -1);
+    margin-right: calc(#{ $SPACING-4-00 } * -1);
+
+    grid-column: 2;
+    align-self: baseline;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.app-footer__nav-link {
+    margin-top: $SPACING-1-00;
+    margin-right: $SPACING-4-00;
+    
+    @include set-font($FONT_TITLE_4);
+
+    &:hover { text-decoration: underline; }
+}
+
+.app-footer__dl {
+    grid-column: 3;
+    align-self: baseline;
+}
+
+.app-footer__dt {
+    @include set-font($FONT_SUBTEXT_1);
+    color: $COLOR_TEXT_50;
+}
+
+.app-footer__dd {
+    &:not( :last-child ) { margin-bottom: $SPACING-2-00; }
+}
+
+.app-footer__copyright {
+    grid-column: span 3;
+
+    @include set-font($FONT_SUBTEXT_1);
+    color: $COLOR_TEXT_50;
+    text-align: center;
+}

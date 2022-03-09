@@ -1,0 +1,26 @@
+.app-footer__title { grid-row: 1; }
+
+.app-footer__nav {
+    grid-row: 1;
+    justify-content: flex-start;
+}
+
+.app-footer__dl {
+    grid-column: 2;
+    grid-row: 2;
+
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.app-footer__dt { grid-row: 1; }
+
+.app-footer__dd {
+    grid-row: 2;
+    &:not( :last-child ) { margin-bottom: 0; }
+}
+
+.app-footer__copyright {
+    grid-column: span 2;
+    grid-row: 3;
+}
