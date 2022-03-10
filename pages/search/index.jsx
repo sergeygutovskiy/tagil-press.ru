@@ -123,7 +123,7 @@ export default function SearchPage({ categories }) {
                         </div>
                     </div>
                     <div className="main-aside-container__aside main-aside-container__aside">
-                        <div className="+search-form">
+                        <div className="main-aside-container__aside-inner-sticky">
                             <h2 className="title-2">Фильтры</h2>
                             <div className="+search-form__group">
                                 <input 

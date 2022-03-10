@@ -18,13 +18,6 @@ export default function AppFooter() {
                             info@tagil-press.ru
                         </a>
                     </dd>
-
-                    <dt className="app-footer__dt">Телефон</dt>
-                    <dd className="app-footer__dd">
-                        <a className="app-footer__link" href="">
-                            +7 (999) 999 99-99
-                        </a>
-                    </dd>
                 </dl>
                 <span className="app-footer__copyright">
                     © {(new Date()).getFullYear()} tagil-press.ru

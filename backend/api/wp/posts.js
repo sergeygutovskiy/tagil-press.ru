@@ -1,9 +1,10 @@
 import { WP_ENDPOINT_CATEGORY_POSTS, WP_ENDPOINT_POST, WP_ENDPOINT_POSTS, WP_ENDPOINT_TAG_POSTS } from "config/endpoints";
 import { categories as categoriesCards } from "config/categories"; 
+import { getPostTags } from ".";
 
 export async function getAllPosts() {
-    const PER_PAGE = 5;
-    const MAX = 10;
+    const PER_PAGE = 20;
+    const MAX = 2000;
 
     let posts = [];
 
@@ -43,7 +44,11 @@ export async function getPostById(postId) {
         content : data.content.rendered,
         excerpt : data.excerpt.rendered,
         image   : data._embedded['wp:featuredmedia'] ? data._embedded['wp:featuredmedia'][0] : null,
+        links   : data._links['wp:term'],
     }
+
+    const postTags = await getPostTags(post.links[1].href);
+    post.tags = postTags;
 
     const categoryCard = categoriesCards.find(card => card.id == data.categories[0]);
 

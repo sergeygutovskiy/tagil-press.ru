@@ -21,11 +21,6 @@
     min-width: 180px;
 }
 
-.\+search-form {
-    position: sticky;
-    top: calc( var(--nav-height) + #{ $SPACING-2-00 } );
-}
-
 .\+search-form__group {
     margin-top: $SPACING-1-50;
 

@@ -43,7 +43,7 @@ export default function CategoryPageContent({ category, currentPage, pagesCount 
                     {postCardEls}
                 </section>
                 <section className="main-aside-container__aside">
-                    <div className="+category-container__tags">
+                    <div className="main-aside-container__aside-inner-sticky">
                         <h3 className="+category-container__tags-title">
                             Популярные метки категории
                         </h3>

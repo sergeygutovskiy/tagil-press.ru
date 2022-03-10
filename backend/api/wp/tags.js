@@ -29,6 +29,18 @@ export async function getAllTags() {
     return tags;
 }
 
+export async function getPostTags(url) {
+    const response = await fetch(url);
+    const data = await response.json();
+
+    const tags = data.map(tag => ({
+        id   : tag.id,
+        name : tag.name,  
+    }));
+
+    return tags;
+}
+
 export async function getTagById(id) {
     const response = await fetch(WP_ENDPOINT_TAG(id));
     let data = await response.json();

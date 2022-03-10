@@ -13,4 +13,9 @@
 
 .main-aside-container__aside {
     grid-column: 9 / 13;
+
+    &-inner-sticky {
+        position: sticky;
+        top: calc( var(--nav-height) + 2em );
+    }
 }

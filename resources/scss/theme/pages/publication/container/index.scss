@@ -4,16 +4,28 @@
 }
 
 .\+publication-container__text {
-    * {
-        color: inherit !important;
+    @include set-font($FONT_TITLE_4);
+
+    * { 
+        color: inherit !important; 
     }
 
     h3 {
         @include set-font($FONT_TITLE_3);
+        line-height: 1.25em;
+
         &:not( :last-child ) { margin-bottom: $SPACING-1-00; }
     }
 
-    p:not( :last-child ) { margin-bottom: $SPACING-1-00; }
+    p, 
+    ul, 
+    ol {
+        line-height: 1.5em;
+    }
+
+    p:not( :last-child ) { 
+        margin-bottom: $SPACING-1-00; 
+    }
 
     img {
         margin: $SPACING-1-25 0;
@@ -21,4 +33,15 @@
         max-width: 100%;
         height: auto;
     }
+
+    a[rel*="attachment"] {
+        pointer-events: none;
+    }
+}
+
+.\+publication-container__tags-title {
+    margin-bottom: $SPACING-1-50;
+
+    @include set-font($FONT_TITLE_4);
+    color: $COLOR_TEXT_50;
 }
