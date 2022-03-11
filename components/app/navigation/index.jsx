@@ -22,10 +22,21 @@ export default function AppNavigation() {
                 </button>
 
                 <div className="app-nav-links">
-                    <Link href="/categories"><a className="app-nav-links__item">Публикации</a></Link>
-                    <Link href="/galleries"><a className="app-nav-links__item">Галерея</a></Link>
-                    <Link href="/search"><a className="app-nav-links__item">Поиск</a></Link>
-                    <Link href="/contacts"><a className="app-nav-links__item">Контакты</a></Link>
+                    <Link href="/categories">
+                        <a className="app-nav-links__item">Архив сайта</a>
+                    </Link>
+                    <Link href="/categories/804/dissertacii-o-tagile">
+                        <a className="app-nav-links__item">Диссертации</a>
+                    </Link>
+                    <Link href="/categories/7/gazeta-tagilskij-rabochij">
+                        <a className="app-nav-links__item">Тагильский рабочий</a>
+                    </Link>
+                    <Link href="/categories/11/stati-o-tagile">
+                        <a className="app-nav-links__item">Статьи</a>
+                    </Link>
+                    <Link href="/galleries">
+                        <a className="app-nav-links__item">ФотоТагил</a>
+                    </Link>
                 </div>
             </nav>
         </div>

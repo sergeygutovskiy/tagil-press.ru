@@ -1,17 +1,33 @@
 import { useState } from "react";
 
-import Breadcrumbs from "@/components/layouts/breadcrumbs";
 import AppModal from "@/components/layouts/modal";
 import Pagination from "@/components/layouts/pagination";
 
-import GalleryModalInner from "../modal-inner";
+import GalleryModalPhoto from "../modal-photo";
 import GalleryPhotoImage from "../photo-image";
 
 export default function GalleryPageContent({ gallery, currentPage, pagesCount }) {
 
     const [ modalImage, setModalImage ] = useState(null);
     const openModalImage = ({ image }) => setModalImage(image);
-    
+
+    const canShowNextImage = () => gallery.images.indexOf(modalImage) < gallery.images.length - 1;
+    const canShowPrevImage = () => gallery.images.indexOf(modalImage) > 0;
+
+    const showNextModalImage = () => {
+        const modalImageIndex = gallery.images.indexOf(modalImage);
+        if ( !canShowNextImage() ) return;
+        
+        setModalImage(gallery.images[modalImageIndex + 1]);
+    }
+
+    const showPrevModalImage = () => {
+        const modalImageIndex = gallery.images.indexOf(modalImage);
+        if ( !canShowPrevImage() ) return;
+
+        setModalImage(gallery.images[modalImageIndex - 1]);
+    }
+
     const url = `/galleries/${gallery.id}/${gallery.slug}`;
 
     const imageEls = gallery.images.map((image, index) => 
@@ -48,7 +64,17 @@ export default function GalleryPageContent({ gallery, currentPage, pagesCount })
             {
                 modalImage != null &&
                 <AppModal onClose={ () => setModalImage(null) }>
-                    <GalleryModalInner gallery={gallery} image={modalImage} />
+                    <GalleryModalPhoto gallery={gallery} image={modalImage} />
+                    <button 
+                        className="+gallery-modal-button --prev" 
+                        onClick={showPrevModalImage}
+                        disabled={!canShowPrevImage()}
+                        />
+                    <button 
+                        className="+gallery-modal-button --next" 
+                        onClick={showNextModalImage}
+                        disabled={!canShowNextImage()}
+                        />
                 </AppModal>
             }
         </>

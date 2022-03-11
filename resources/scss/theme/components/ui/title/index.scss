@@ -1,19 +1,27 @@
 .title-1 {
     margin-bottom: $SPACING-1-00;
+    
     @include set-font($FONT_TITLE_1);
+    line-height: 1.35em;
 }
 
 .title-2 {
     &:not( :last-child ) { margin-bottom: $SPACING-1-00; }
+    
     @include set-font($FONT_TITLE_2);
+    line-height: 1.35em;
 }
 
 .title-3 {
     &:not( :last-child ) { margin-bottom: $SPACING-0-50; }
+    
     @include set-font($FONT_TITLE_3);
+    line-height: 1.5em;
 }
 
 .title-4 {
     &:not( :last-child ) { margin-bottom: $SPACING-1-00; }
+    
     @include set-font($FONT_TITLE_4);
+    line-height: 1.5em;
 }

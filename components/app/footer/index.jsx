@@ -6,9 +6,9 @@ export default function AppFooter() {
             <div className="app-footer__content container">
                 <a className="app-footer__title" href="">Tagil-press</a>
                 <div className="app-footer__nav">
-                    <Link href="/categories"><a className="app-footer__nav-link">Публикации</a></Link>
+                    <Link href="/categories"><a className="app-footer__nav-link">Архив сайта</a></Link>
                     <Link href="/search"><a className="app-footer__nav-link">Поиск</a></Link>
-                    <Link href="/galleries"><a className="app-footer__nav-link">Галерея</a></Link>
+                    <Link href="/galleries"><a className="app-footer__nav-link">ФотоТагил</a></Link>
                     <Link href="/contacts"><a className="app-footer__nav-link">Контакты</a></Link>
                 </div>
                 <dl className="app-footer__dl">

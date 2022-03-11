@@ -33,7 +33,7 @@ export default function CategoryPageContent({ category, currentPage, pagesCount 
                     contentAlignClass="--content-top"
                     contentColorClass={category.card.contentColorClass}
 
-                    cardTitleClass="title-2"
+                    titleClass="title-2"
                     title={category.name}
                     />
             </header>
