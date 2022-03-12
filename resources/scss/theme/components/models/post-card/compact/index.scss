@@ -17,6 +17,10 @@
     border-bottom: solid 1px $COLOR_DIVIDER;
 }
 
+.post-compact-card__breadcrumbs {
+    flex-grow: 1;
+}
+
 .post-compact-card__date {
     @include set-font($FONT_SUBTEXT_1);
     color: $COLOR_BLUE_30;

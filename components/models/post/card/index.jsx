@@ -2,6 +2,7 @@ import Tag from "../../tag";
 import Link from "next/link";
 
 export default function PostCard({ post }) {
+    
     post.date = (new Date(post.date)).toLocaleDateString('en-US');
 
     return (
@@ -18,11 +19,15 @@ export default function PostCard({ post }) {
                 </a>
             </Link>
             {
-                post.image &&
+                post.image != null &&
                 <div className="post-card__image-wrapper">
                     <img className="post-card__image" src={post.image.source_url} />
                 </div>
             }
+            <div 
+                className="post-card__paragraph"
+                dangerouslySetInnerHTML={{ __html: post.excerpt }}
+                />
             { post.tags !== undefined && 
                 <div className="tag-list">
                     {post.tags.map(t => <Tag key={t.id} tag={t} />)}

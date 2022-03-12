@@ -1,11 +1,21 @@
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+
 import Link from "next/link";
-import { useState } from "react";
 
 export default function AppNavigation() {
+    const router = useRouter();
     const [ isOpen, setIsOpen ] = useState(false);
-    
+
     const open = () => setIsOpen(true);
     const close = () => setIsOpen(false);
+
+    useEffect(() => {
+        const handleRouteChange = () => close();
+        router.events.on('routeChangeStart', handleRouteChange)
+
+        return () => { router.events.off('routeChangeStart', handleRouteChange); }
+    }, []);
 
     return (
         <div className={`app-nav ${ isOpen ? '--open' : '' }`}>

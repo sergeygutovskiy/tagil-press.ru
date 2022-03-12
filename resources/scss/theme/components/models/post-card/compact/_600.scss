@@ -1,3 +1,10 @@
-.post-compact-card__breadcrumbs .breadcrumbs__item:not( :last-child ) {
-    display: none;
+.post-compact-card__breadcrumbs {
+    .breadcrumbs__item:not( :last-child ) { display: none; }
+    .breadcrumbs__item:last-child a {
+        width: 220px;
+        white-space: nowrap;
+
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
 }

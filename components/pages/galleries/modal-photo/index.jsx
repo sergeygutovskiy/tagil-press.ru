@@ -9,10 +9,10 @@ export default function GalleryModalPhoto({ image }) {
             { 
                 image.desc != '' &&
                 <div className={`+gallery-modal-photo__text ${ isTextOpen ? '' : '--hidden' }`}>
-                    <button 
+                    {/* <button 
                         className="+gallery-modal-photo__button"
                         onClick={ () => setIsTextOpen( !isTextOpen ) }
-                    ></button>
+                    ></button> */}
                     
                     <p> {image.desc} </p>
                 </div>

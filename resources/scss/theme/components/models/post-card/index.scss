@@ -28,3 +28,11 @@
     max-height: 25vh;
     height: auto;
 }
+
+.post-card__paragraph {
+    &:not( :last-child ) { margin-bottom: $SPACING-1-50; }
+
+    @include set-font($FONT_SUBTEXT_1);
+    line-height: 1.25em;
+    color: $COLOR_TEXT_90;
+}

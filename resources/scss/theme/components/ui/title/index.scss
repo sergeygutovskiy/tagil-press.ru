@@ -16,7 +16,7 @@
     &:not( :last-child ) { margin-bottom: $SPACING-0-50; }
     
     @include set-font($FONT_TITLE_3);
-    line-height: 1.5em;
+    line-height: 1.25em;
 }
 
 .title-4 {

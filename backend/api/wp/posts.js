@@ -74,12 +74,13 @@ export async function getCategoryPosts(categoryId, allTags, offset) {
     const data = await response.json();
 
     const posts = data.map(post => ({
-        id    : post.id,
-        slug  : post.slug,
-        title : post.title.rendered,
-        date  : post.date,
-        tags  : allTags.filter(tag => post.tags.indexOf(tag.id) !== -1 ),
-        image : post._embedded['wp:featuredmedia'] ? post._embedded['wp:featuredmedia'][0] : null,
+        id      : post.id,
+        slug    : post.slug,
+        title   : post.title.rendered,
+        excerpt : post.excerpt.rendered,
+        date    : post.date,
+        tags    : allTags.filter(tag => post.tags.indexOf(tag.id) !== -1 ),
+        image   : post._embedded['wp:featuredmedia'] ? post._embedded['wp:featuredmedia'][0] : null,
     }));
 
     return posts;
@@ -98,6 +99,7 @@ export async function getTagPosts(tagId, offset) {
         id    : post.id,
         slug  : post.slug,
         title : post.title.rendered,
+        excerpt : post.excerpt.rendered,
         date  : post.date,
         image : post._embedded['wp:featuredmedia'] ? post._embedded['wp:featuredmedia'][0] : null,
     }));

@@ -18,6 +18,7 @@
     color: $COLOR_TEXT_100;
 
     background-color: $COLOR_BACKGROUND;
+    overflow: hidden;
 
     --nav-margin-top: #{ $SPACING-1-50 };
     --nav-padding-top: #{ $SPACING-1-00 };
