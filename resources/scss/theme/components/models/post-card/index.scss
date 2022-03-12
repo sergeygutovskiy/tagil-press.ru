@@ -35,4 +35,9 @@
     @include set-font($FONT_SUBTEXT_1);
     line-height: 1.25em;
     color: $COLOR_TEXT_90;
+
+    span:last-child {
+        text-transform: uppercase;
+        font-weight: 600;
+    }
 }

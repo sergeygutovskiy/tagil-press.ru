@@ -1,7 +1,9 @@
+html {
+    @include set-font($FONT_BODY);
+}
+
 :root {
     // font sizes variables
-
-    @include set-font($FONT_BODY);
 
     @each $font-name, $font-params in $FONTS {
         $size: map-get($map: $font-params, $key: 'size');

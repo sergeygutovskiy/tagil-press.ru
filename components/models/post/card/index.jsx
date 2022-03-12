@@ -4,10 +4,11 @@ import Link from "next/link";
 export default function PostCard({ post }) {
     
     post.date = (new Date(post.date)).toLocaleDateString('en-US');
+    const url = `/publications/${post.id}/${post.slug}`;
 
     return (
         <article className="post-card">
-            <Link href={`/publications/${post.id}/${post.slug}`} passHref>
+            <Link href={url} passHref>
                 <a className="post-card__header">
                     <span className="post-card__date">{post.date}</span>
                     { 
@@ -24,10 +25,12 @@ export default function PostCard({ post }) {
                     <img className="post-card__image" src={post.image.source_url} />
                 </div>
             }
-            <div 
-                className="post-card__paragraph"
-                dangerouslySetInnerHTML={{ __html: post.excerpt }}
-                />
+            <Link href={url}>
+                <a 
+                    className="post-card__paragraph"
+                    dangerouslySetInnerHTML={{ __html: post.excerpt }}
+                    />
+            </Link>
             { post.tags !== undefined && 
                 <div className="tag-list">
                     {post.tags.map(t => <Tag key={t.id} tag={t} />)}
