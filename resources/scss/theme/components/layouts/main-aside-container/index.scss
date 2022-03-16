@@ -8,11 +8,11 @@
 }
 
 .main-aside-container__main {
-    grid-column: span 8;
+    grid-column: span 7;
 }
 
 .main-aside-container__aside {
-    grid-column: 10 / 13;
+    grid-column: 9 / 13;
 
     &-inner-sticky {
         position: sticky;

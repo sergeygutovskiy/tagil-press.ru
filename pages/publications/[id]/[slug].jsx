@@ -5,8 +5,6 @@ import Tag from '@/components/models/tag';
 
 import { PAGE_META_DESC, PAGE_META_TITLES } from 'config/meta';
 
-import Image from 'next/image';
-
 export default function PublicationPage({ post }) {
 
     const breadcrumbs = [
@@ -17,12 +15,9 @@ export default function PublicationPage({ post }) {
 
     const postImageEl = post.image !== null &&
         <div className='+publication-container__image-wrapper'>
-            <Image 
+            <img
+                className='+publication-container__image'
                 src={post.image.source_url} 
-                width={post.image.media_details.width}
-                height={post.image.media_details.height}
-                layout={'responsive'}
-                priority={true}
                 />
         </div>
     
@@ -38,7 +33,7 @@ export default function PublicationPage({ post }) {
             <Breadcrumbs links={breadcrumbs} />
 
             <section className='main-aside-container container'>
-                <div className='main-aside-container__main'>
+                <div className='+publication-container__main main-aside-container__main'>
                     <h1 className='title-2' 
                         dangerouslySetInnerHTML={{ __html: post.title }} 
                         />
@@ -48,7 +43,7 @@ export default function PublicationPage({ post }) {
                         dangerouslySetInnerHTML={{ __html: post.content }} 
                         />
                 </div>
-                <div className='main-aside-container__aside'>
+                <div className='+publication-container__aside main-aside-container__aside'>
                     <div className='main-aside-container__aside-inner-sticky'>
                         <h3 className='+publication-container__tags-title'>Метки статьи</h3>
                         <div className='tag-list'>

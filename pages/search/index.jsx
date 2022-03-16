@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 import { SEARCH_ENDPOINT } from "config/endpoints";
 import { PAGE_META_DESC, PAGE_META_TITLES } from "config/meta";
+import { useRouter } from "next/router";
 
 const sorting = [
     { value: '&orderby=date&order=DESC'  , label: 'Сначала новые' },
@@ -17,12 +18,15 @@ const sorting = [
 ]
 
 export default function SearchPage({ categories }) {
-    
+
+    const POSTS_PER_PAGE = 50;
+
+    const router = useRouter();
+    const [ isSearchFromURL, setIsSearchFromURL ] = useState(false);
+
     const [ selectedCategory, setSelectedCategory ] = useState(null);
     const [ selectedSorting, setSelectedSorting ] = useState(sorting[0]);
     const [ keywordValue, setKeywordValue ] = useState('');
-    const [ minDateValue, setMinDateValue ] = useState(null);
-    const [ maxDateValue, setMaxDateValue ] = useState(null);
 
     const [ isFormValid, setIsFormValid ] = useState(false);
 
@@ -30,39 +34,87 @@ export default function SearchPage({ categories }) {
     const [ isLoading, setIsLoading ] = useState(false);
 
     useEffect(() => {
+        if ( !router.isReady || !router.query.query ) return;
+
+        const query = router.query.query;
+        if (query == keywordValue) return;
+
+        setKeywordValue(query);
+    }, [ router.isReady ]);
+
+    useEffect(() => {
+        if ( !isSearchFromURL || !keywordValue ) return;
+
+        setIsSearchFromURL(false);
+        getPosts();
+    }, [ keywordValue, isSearchFromURL ]);
+
+    useEffect(() => {
+        if ( !router.isReady ) return;
+
+        const savedKeywordValue = localStorage.getItem('search-query');
+        const savedSelectedCategory = localStorage.getItem('search-category');
+        const savedSelectedSorting = localStorage.getItem('search-sorting');
+        const savedFoundPosts = localStorage.getItem('search-results');
+
+        if ( router.query.query && router.query.query != savedKeywordValue ) {
+            setIsSearchFromURL(true);
+            return;
+        }
+        else if (!savedKeywordValue) return;
+
+        setKeywordValue(savedKeywordValue);
+        setSelectedCategory(savedSelectedCategory);
+        setSelectedSorting( sorting[savedSelectedSorting] );
+        setFoundPosts( JSON.parse(savedFoundPosts) );
+    }, [ router.isReady ]);
+
+    useEffect(() => {
         if (keywordValue.length > 0) setIsFormValid(true);
         else setIsFormValid(false);
-    }, [ keywordValue, minDateValue, maxDateValue ]);
+    }, [ keywordValue ]);
 
     const getPosts = async () => {
         setFoundPosts([]);
         setIsLoading(true);
         
+        localStorage.removeItem('search-query');
+        localStorage.removeItem('search-category');
+        localStorage.removeItem('search-sorting');
+        localStorage.removeItem('search-results');
+
         try {
             let categoryFilterString = '';
             if (selectedCategory !== null) {
-                categoryFilterString = `
-                    &tax_query[0][taxonomy]=category
-                    &tax_query[0][field]=id
-                    &tax_query[0][terms]=${selectedCategory}
-                `.replace(/\s/g, '');
+                categoryFilterString = 
+                    `&tax_query[0][taxonomy]=category`
+                    + `&tax_query[0][field]=id`
+                    + `&tax_query[0][terms]=${selectedCategory}`
+                    ;
             }
 
             const response = await fetch(`
                 ${SEARCH_ENDPOINT()}
-                ?keyword=${keywordValue}
+                ?per_page=${POSTS_PER_PAGE}
+                &keyword=${keywordValue}
                 ${categoryFilterString}
                 ${selectedSorting.value}
             `.replace(/\s/g, ''));
         
             const data = await response.json();
             const posts = data.map(post => ({
-                id    : post.id,
-                slug  : post.slug,
-                title : post.title.rendered,
-                date  : post.date,
-                image : null,
+                id      : post.id,
+                slug    : post.slug,
+                title   : post.title.rendered,
+                excerpt : post.excerpt.rendered,
+                date    : post.date,
+                image   : null,
             }));
+
+            localStorage.setItem('search-query', keywordValue);
+            localStorage.setItem('search-category', selectedCategory);
+            localStorage.setItem('search-sorting', sorting.indexOf(selectedSorting));
+            localStorage.setItem('search-results', JSON.stringify(posts));
 
             setFoundPosts(posts);
         } catch {
@@ -107,7 +159,7 @@ export default function SearchPage({ categories }) {
                                 />
                             </div>
                         </div>
-                        <div className="post-card-list">
+                        <div className="+search-results post-card-list">
                             {
                                 isLoading ?
                                 Array.from({length: 10}, (_, i) => i).map(i => <PostSkeletonCard key={i} />)
@@ -130,6 +182,7 @@ export default function SearchPage({ categories }) {
                                     className="input" 
                                     type="text" 
                                     placeholder="Строка поиска"
+                                    value={keywordValue}
                                     onChange={(e) => setKeywordValue(e.target.value)}
                                 />
                             </div>
@@ -137,7 +190,7 @@ export default function SearchPage({ categories }) {
                                 <h3 className="title-4">Категория публикаций</h3>
                                 <div className="+search-form__categories">
                                     {categories.map(category => 
-                                        selectedCategory !== category.id ?
+                                        selectedCategory != category.id ?
                                         <button 
                                             key={category.id}
                                             className="+search-form__category"
@@ -158,13 +211,11 @@ export default function SearchPage({ categories }) {
                                     <input 
                                         className="input" 
                                         type="date" 
-                                        onChange={(e) => setMinDateValue(e.target.value)}
-                                    />
+                                        />
                                     <input 
                                         className="input" 
                                         type="date"
-                                        onChange={(e) => setMaxDateValue(e.target.value)}
-                                    />
+                                        />
                                 
                                     <button 
                                         className="+search-form__btn" 

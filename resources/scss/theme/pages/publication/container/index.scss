@@ -1,10 +1,26 @@
+.\+publication-container__main {
+    grid-column: span 8;
+}
+
+.\+publication-container__aside {
+    grid-column: 10 / 13;
+}
+
 .\+publication-container__image-wrapper {
     margin: $SPACING-1-50 0;
-    overflow: hidden;
+}
+
+.\+publication-container__image {
+    min-width: 50%;
+    width: 100%;
+    max-height: 60vh;
+    
+    object-fit: contain;
+    object-position: left;
 }
 
 .\+publication-container__text {
-    @include set-font($FONT_TITLE_4);
+    @include set-font($FONT_SUBTEXT_1);
 
     * { 
         color: inherit !important; 

@@ -30,17 +30,6 @@ export default function GalleryPageContent({ gallery, currentPage, pagesCount })
 
     const url = `/galleries/${gallery.id}/${gallery.slug}`;
 
-    const imageEls = gallery.images.map((image, index) => 
-        <button 
-            key={index}
-            className="photo-card" 
-            onClick={ () => openModalImage({ image }) }
-            >
-            
-            <GalleryPhotoImage image={image} />
-        </button>
-    );
-
     return (
         <>
             <header className="container">
@@ -50,7 +39,16 @@ export default function GalleryPageContent({ gallery, currentPage, pagesCount })
             </header>
         
             <section className="photo-list container">
-                {imageEls}
+                {gallery.images.map((image, index) => 
+                    <button 
+                        key={index}
+                        className="photo-card" 
+                        onClick={ () => openModalImage({ image }) }
+                        >
+                        
+                        <GalleryPhotoImage image={image} />
+                    </button>
+                )}
             </section>
 
             <section className="pagination-wrapper container">

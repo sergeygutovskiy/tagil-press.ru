@@ -23,9 +23,9 @@ export default function ContactsPage() {
                         <a href="mailto:info@tagil-press.ru">info@tagil-press.ru</a>
                     </dd>
 
-                    <dt className="+contacts-dl__dt">Телефон</dt>
+                    <dt className="+contacts-dl__dt">Вконтакте</dt>
                     <dd className="+contacts-dl__dd">
-                        <a href="">+7 (999) 999 99-99</a>
+                        <a href="https://vk.com/club144222943">vk.com/club144222943</a>
                     </dd>
 
                     <dt className="+contacts-dl__dt">Поддержать автора</dt>

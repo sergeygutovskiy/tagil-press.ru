@@ -32,8 +32,7 @@
 .post-card__paragraph {
     &:not( :last-child ) { margin-bottom: $SPACING-1-50; }
 
-    @include set-font($FONT_SUBTEXT_1);
-    line-height: 1.25em;
+    line-height: 1.4em;
     color: $COLOR_TEXT_90;
 
     span:last-child {

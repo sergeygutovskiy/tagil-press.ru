@@ -6,6 +6,10 @@
     row-gap: $SPACING-3-00;
 }
 
+.\+search-results .excerpt_part strong {
+    color: $COLOR_BLUE_30;
+}
+
 .\+search-results-header {
     margin-bottom: $SPACING-3-00;
 

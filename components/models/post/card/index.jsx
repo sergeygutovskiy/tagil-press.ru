@@ -10,7 +10,7 @@ export default function PostCard({ post }) {
         <article className="post-card">
             <Link href={url} passHref>
                 <a className="post-card__header">
-                    <span className="post-card__date">{post.date}</span>
+                    {/* <span className="post-card__date">{post.date}</span> */}
                     { 
                         post.title != '' ?
                         <h2 className="title-3" dangerouslySetInnerHTML={{ __html: post.title }} />
