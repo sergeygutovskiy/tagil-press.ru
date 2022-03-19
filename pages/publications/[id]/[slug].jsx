@@ -34,7 +34,7 @@ export default function PublicationPage({ post }) {
 
             <section className='main-aside-container container'>
                 <div className='+publication-container__main main-aside-container__main'>
-                    <h1 className='title-2' 
+                    <h1 className='+publication-container__title' 
                         dangerouslySetInnerHTML={{ __html: post.title }} 
                         />
                     {postImageEl}

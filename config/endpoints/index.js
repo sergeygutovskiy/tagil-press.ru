@@ -23,6 +23,6 @@ export const CUSTOM_ENDPOINT_GALLERY = (id) => `${HOST}/${CUSTOM_API}/galleries/
 
 export const CUSTOM_ENDPOINT_GALLERY_IMAGES = (id, page) => `${HOST}/${CUSTOM_API}/galleries/${id}/images?page=${page}`;
 
-// SEARCH_ENDPOINT
+// search   
 
 export const SEARCH_ENDPOINT = () => `${HOST}/wp-json/relevanssi/v1/search`;

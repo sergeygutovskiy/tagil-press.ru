@@ -10,9 +10,9 @@ export async function getStaticPaths() {
         }
     })); 
 
-    return {
-        paths: paths,
-        fallback: false,
+    return { 
+        paths, 
+        fallback: 'blocking' 
     }
 }
 
@@ -22,6 +22,10 @@ export async function getStaticProps({ params }) {
     const post = await getPostById(postId);
 
     return { 
-        props: { post }
+        props: { 
+            post 
+        },
+
+        revalidate: Number.parseInt(process.env.POST_REVALIDATE_TIME)
     }
 }

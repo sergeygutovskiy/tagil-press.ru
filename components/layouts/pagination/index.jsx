@@ -9,6 +9,49 @@ export default function Pagination({ url, currentPage, pagesCount }) {
     const itemCurrentClass = '--current';
     const itemDisabledClass =  '--disabled';
 
+    function renderAll() {
+        return (
+            <div className="pagination">
+                {
+                    currentPage == 1 ?
+                    <span className={`${itemClass} ${itemDisabledClass}`}></span>
+                    :
+                    currentPage == 2 ?
+                    <Link href={url}><a className={itemClass}></a></Link>
+                    :
+                    <Link href={`${url}/${currentPage - 1}`}><a className={itemClass}></a></Link>
+                }
+
+                {
+                    currentPage == 1 ?
+                    <span className={`${itemClass} ${itemNumberClass} ${itemCurrentClass}`}>1</span>
+                    :
+                    <Link href={url}><a className={`${itemClass} ${itemNumberClass}`}>1</a></Link>
+                }
+
+                { Array.from({length: pagesCount - 1}, (_, i) => i).map((_, i) => 
+                    (
+                        currentPage == i + 2 ?
+                        <span key={i} className={`${itemClass} ${itemNumberClass} ${itemCurrentClass}`}>
+                            {i + 2}
+                        </span>
+                        :
+                        <Link key={i} href={`${url}/${i + 2}`}>
+                            <a className={`${itemClass} ${itemNumberClass}`}>{i + 2}</a>
+                        </Link>
+                    )
+                )}
+
+                {
+                    currentPage == pagesCount ? 
+                    <span className={`${itemClass} ${itemDisabledClass}`}></span>
+                    :
+                    <Link href={`${url}/${currentPage + 1}`}><a className={`${itemClass}`}></a></Link>
+                }
+            </div>
+        );
+    }
+
     function renderLeft() {
         return (
             <div className="pagination">
@@ -29,7 +72,7 @@ export default function Pagination({ url, currentPage, pagesCount }) {
                     <Link href={url}><a className={`${itemClass} ${itemNumberClass}`}>1</a></Link>
                 }
 
-                { Array.from({length: LINKS_COUNT + 1}, (v, i) => i).map((value, i) => 
+                { Array.from({length: LINKS_COUNT + 1}, (_, i) => i).map((_, i) => 
                     (
                         currentPage == i + 2 ?
                         <span key={i} className={`${itemClass} ${itemNumberClass} ${itemCurrentClass}`}>
@@ -56,7 +99,7 @@ export default function Pagination({ url, currentPage, pagesCount }) {
                 <Link href={url}><a className={`${itemClass} ${itemNumberClass}`}>1</a></Link>
                 <span className={`${itemClass} pagination__item_dots`}>…</span>
 
-                { Array.from({length: LINKS_COUNT}, (v, i) => i).map((value, i) => 
+                { Array.from({length: LINKS_COUNT}, (_, i) => i).map((_, i) => 
                     (
                         currentPage == currentPage + i ?
                         <span key={i} className={`${itemClass} ${itemCurrentClass}`}>{currentPage + i}</span>
@@ -81,7 +124,7 @@ export default function Pagination({ url, currentPage, pagesCount }) {
                 <Link href={url}><a className={`${itemClass} ${itemNumberClass}`}>1</a></Link>
                 <span className={`${itemClass} pagination__item_dots`}>…</span>
 
-                { Array.from({length: LINKS_COUNT + 1}, (v, i) => i).map((value, i) => 
+                { Array.from({length: LINKS_COUNT + 1}, (_, i) => i).map((_, i) => 
                     (
                         currentPage == pagesCount - LINKS_COUNT -1 + i ?
                         <span key={i} className={`${itemClass} ${itemCurrentClass}`}>
@@ -117,7 +160,8 @@ export default function Pagination({ url, currentPage, pagesCount }) {
 
     let rednerFunc = renderCenter;
     
-    if (pagesCount < LINKS_COUNT + 2) rednerFunc = () => null;
+    if (pagesCount == 1) rednerFunc = () => null;
+    else if (pagesCount < LINKS_COUNT + 2) rednerFunc = renderAll;
     else if (currentPage - LINKS_COUNT <= 0) rednerFunc = renderLeft;
     else if (pagesCount - currentPage <= LINKS_COUNT + 1) rednerFunc = renderRight;
 

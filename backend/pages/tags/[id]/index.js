@@ -8,7 +8,10 @@ export async function getStaticPaths() {
         id : String(tag.id),
     } }))
 
-    return { paths, fallback: false }
+    return { 
+        paths, 
+        fallback: 'blocking' 
+    }
 }
 
 export async function getStaticProps({ params }) {
@@ -22,6 +25,8 @@ export async function getStaticProps({ params }) {
             pagesCount: calculatePagesCount(
                 tag.count, process.env.NEXT_PUBLIC_TAG_PAGE_POSTS_COUNT
             ),
-        }
+        },
+
+        revalidate: Number.parseInt(process.env.TAG_POSTS_REVALIDATE_TIME)
     }
 }

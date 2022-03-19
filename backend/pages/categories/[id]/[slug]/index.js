@@ -14,9 +14,9 @@ export async function getStaticPaths() {
         }
     }));
 
-    return {
-        paths,
-        fallback: false,
+    return { 
+        paths, 
+        fallback: 'blocking' 
     }
 }
 
@@ -43,6 +43,8 @@ export async function getStaticProps({ params }) {
         props: { 
             category,
             pagesCount,
-        }
+        },
+
+        revalidate: Number.parseInt(process.env.CATEGORY_REVALIDATE_TIME)
     }
 }

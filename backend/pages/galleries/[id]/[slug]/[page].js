@@ -22,7 +22,10 @@ export async function getStaticPaths() {
         }
     }
 
-    return { paths, fallback: false }
+    return { 
+        paths, 
+        fallback: 'blocking' 
+    }
 }
 
 export async function getStaticProps({ params }) {
@@ -45,6 +48,8 @@ export async function getStaticProps({ params }) {
             gallery,
             currentPage,
             pagesCount,
-        }
+        },
+
+        revalidate: Number.parseInt(process.env.GALLERY_PAGE_REVALIDATE_TIME)
     }
 }

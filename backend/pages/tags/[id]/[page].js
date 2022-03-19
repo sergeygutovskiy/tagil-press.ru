@@ -21,9 +21,9 @@ export async function getStaticPaths() {
         }
     }
 
-    return {
-        paths,
-        fallback: false,
+    return { 
+        paths, 
+        fallback: 'blocking' 
     }
 }
 
@@ -44,6 +44,8 @@ export async function getStaticProps({ params }) {
             tag,
             currentPage,
             pagesCount,
-        }
+        },
+
+        revalidate: Number.parseInt(process.env.TAG_POSTS_PAGE_REVALIDATE_TIME)
     }
 }
