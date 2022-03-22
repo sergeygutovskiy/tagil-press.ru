@@ -25,7 +25,5 @@ export async function getStaticProps({ params }) {
         props: { 
             post 
         },
-
-        revalidate: Number.parseInt(process.env.POST_REVALIDATE_TIME)
     }
 }

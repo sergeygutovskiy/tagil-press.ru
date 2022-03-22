@@ -35,7 +35,5 @@ export async function getStaticProps({ params }) {
             gallery,
             pagesCount,
         },
-
-        revalidate: Number.parseInt(process.env.GALLERY_REVALIDATE_TIME)
     }
 }

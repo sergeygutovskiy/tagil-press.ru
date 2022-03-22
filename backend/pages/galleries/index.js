@@ -7,7 +7,5 @@ export async function getStaticProps() {
         props: { 
             galleries
         },
-
-        revalidate: Number.parseInt(process.env.GALLERIES_REVALIDATE_TIME)
     } 
 }

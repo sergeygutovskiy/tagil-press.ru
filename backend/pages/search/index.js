@@ -7,7 +7,5 @@ export async function getStaticProps() {
         props: {
             categories,
         },
-
-        revalidate: Number.parseInt(process.env.SEARCH_REVALIDATE_TIME)
     }
 }

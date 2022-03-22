@@ -26,7 +26,5 @@ export async function getStaticProps({ params }) {
                 tag.count, process.env.NEXT_PUBLIC_TAG_PAGE_POSTS_COUNT
             ),
         },
-
-        revalidate: Number.parseInt(process.env.TAG_POSTS_REVALIDATE_TIME)
     }
 }

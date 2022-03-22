@@ -57,7 +57,5 @@ export async function getStaticProps({ params }) {
             currentPage,
             pagesCount,
         },
-
-        revalidate: Number.parseInt(process.env.CATEGORY_PAGE_REVALIDATE_TIME)
     }
 }

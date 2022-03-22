@@ -44,7 +44,5 @@ export async function getStaticProps({ params }) {
             category,
             pagesCount,
         },
-
-        revalidate: Number.parseInt(process.env.CATEGORY_REVALIDATE_TIME)
     }
 }
